@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>980842155489-jt1lt2ugcp7dm0l6ee2kqigq93s9g05f.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.980842155489-jt1lt2ugcp7dm0l6ee2kqigq93s9g05f</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>980842155489-kqrbjglidn9rh4cjsec9ku2m9hqf9b86.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBpJubfbTP4KTd28NKHA2X8GyeRZ5zAhQ4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>980842155489</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.techind.iOSEasyMarkGB</string>
+	<key>PROJECT_ID</key>
+	<string>easymark-mobile</string>
+	<key>STORAGE_BUCKET</key>
+	<string>easymark-mobile.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:980842155489:ios:47b7473aa144e7d0c116a0</string>
+	<key>DATABASE_URL</key>
+	<string>https://easymark-mobile.firebaseio.com</string>
+</dict>
+</plist>

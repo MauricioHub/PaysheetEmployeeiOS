@@ -1,0 +1,6 @@
+framework module Pods_EasyMarkGBiOS {
+  umbrella header "Pods-EasyMarkGBiOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
