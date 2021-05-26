@@ -73,15 +73,15 @@ class AuthController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func enterExec(_ sender: Any) {
-      /*  if enterpriseTxt.text != "" && cardIDTxt.text != "" && passwordTxt.text != "" { */
+        if enterpriseTxt.text != "" && cardIDTxt.text != "" && passwordTxt.text != "" {
                 preAuthLogin(ruc: enterpriseTxt.text!, card: cardIDTxt.text!, pass: passwordTxt.text!)
                 AppSettings.cardID = cardIDTxt.text!
                 AppSettings.enterpriseRUC = enterpriseTxt.text!
                 print("validado.")
                 
-          /*   } else {
-                self.showAlertDialog(message: "Todos los campos son requeridos.")
-             } */
+         } else {
+            self.showAlertDialog(message: "Todos los campos son requeridos.")
+         }
     }
     
     
@@ -180,7 +180,18 @@ class AuthController: UIViewController, UITextFieldDelegate {
                 self.authLogin(ruc: ruc, card: card, pass: pass)
             }
         }*/
-        self.authLogin(ruc: ruc, card: "", pass: "")
+        if ruc.count == 13{
+            let index = ruc.index(ruc.startIndex, offsetBy: 10)
+            let mySubstring = ruc[..<index]
+            if self.isValidCardID(cardId: card) && self.isValidCardID(cardId: String(mySubstring)){
+                self.authLogin(ruc: ruc, card: card, pass: pass)
+            } else{
+                self.showAlertDialog(message: "Cédula y RUC deben ser válidos.")
+            }
+        } else{
+            self.showAlertDialog(message: "Cédula y RUC deben ser válidos.")
+        }
+        //self.authLogin(ruc: ruc, card: "", pass: "")
     }
 
  
