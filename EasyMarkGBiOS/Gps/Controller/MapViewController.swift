@@ -31,7 +31,7 @@ class MapViewController: UIViewController{
     var ggleMap: GMSMapView?
     var date : Date!
     
-    let colorPrimary = "#89c64d"
+    let colorPrimary = "#6200ee"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,24 +54,6 @@ class MapViewController: UIViewController{
         } else {
           locationManager.requestWhenInUseAuthorization()
         }
-        
-        /*locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        
-        mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.new, context: nil)
-        
-        
-        let marker: GMSMarker = GMSMarker() // Allocating Marker
-         marker.title = "Attendance" // Setting title
-         marker.snippet = "JustITime" // Setting sub title
-         marker.icon = UIImage(named: "ic_mail_outline_white_2x")
-         marker.appearAnimation = .pop // Appearing animation. default
-         marker.position = CLLocationCoordinate2DMake(-1.831239, -78.183403)
-
-        DispatchQueue.main.async { // Setting marker on mapview in main thread.
-            marker.map = self.ggleMap // Setting marker on Mapview
-        }*/
-       // makeButton()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,13 +75,6 @@ class MapViewController: UIViewController{
     
     @objc func handleMenuToggle() {
         delegate?.handleMenuToggle(forMenuOption: nil)
-    }
-    
-    
-    @IBAction func throwHomeScene(_ sender: Any) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "containerID") as! ContainerController
-        self.present(viewController, animated: false)
     }
     
 
@@ -181,61 +156,6 @@ class MapViewController: UIViewController{
             print("I'm a BAD INACTIVE APPLICATION !!! ")
         }
     }
-    
-    
-
-   /* func locationManager(_: CLLocationManager, didChangeAuthorization: CLAuthorizationStatus) {
-        if didChangeAuthorization == CLAuthorizationStatus.authorizedWhenInUse {
-            mapView.showsUserLocation = true
-        }
-    }*/
-    
-    
-   /* @objc func handleMapsToggle(_ sender: UIButton){
-        print("SOY HOLA mAPAS !!")
-        
-        let autocompleteController = GMSAutocompleteViewController()
-                
-      //  autocompleteController.autocompleteBounds = getCoordinateBounds(latitude: latitude, longitude: longitude)
-        
-            // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-          UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .address
-        autocompleteController.autocompleteFilter = filter
-        
-        autocompleteController.delegate = self
-        
-        // Display the autocomplete view controller.
-        present(autocompleteController, animated: true, completion: nil)
-    }
-    
-    
-    func makeButton() {
-      let btnLaunchAc = UIButton(frame: CGRect(x: 5, y: 100, width: 300, height: 35))
-      btnLaunchAc.backgroundColor = .blue
-      btnLaunchAc.setTitle("Launch autocomplete", for: .normal)
-      btnLaunchAc.addTarget(self, action: #selector(handleMapsToggle), for: .touchUpInside)
-      self.view.addSubview(btnLaunchAc)
-    }*/
-    
-    
-    /*func getCoordinateBounds(latitude:CLLocationDegrees ,
-                             longitude:CLLocationDegrees,
-                             distance:Double = 0.001)->GMSCoordinateBounds{
-        let center = CLLocationCoordinate2D(latitude: latitude,
-                                            longitude: longitude)
-        let northEast = CLLocationCoordinate2D(latitude: center.latitude + distance, longitude: center.longitude + distance)
-        let southWest = CLLocationCoordinate2D(latitude: center.latitude - distance, longitude: center.longitude - distance)
-
-        return GMSCoordinateBounds(coordinate: northEast,
-                                   coordinate: southWest)
-
-    }*/
 }
 
 
@@ -256,20 +176,6 @@ extension MapViewController : GMSAutocompleteViewControllerDelegate{
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         print("Was Canceled.")
     }
-    
-    
-   /* func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
-        
-        print("Place name: \(String(describing: place.name))")
-        print("Place ID: \(String(describing: place.placeID))")
-        print("Place attributions: \(String(describing: place.attributions))")
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didFailAutocompleteWithError error: Error) {
-        print("Error . ")
-    }*/
     
 }
 

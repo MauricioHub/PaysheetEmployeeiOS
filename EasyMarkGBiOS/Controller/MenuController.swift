@@ -14,7 +14,7 @@ class MenuController: UIViewController{
     
     // MARK: - Properties
     
-    let colorPrimary = "#89c64d"
+    let colorPrimary = "#6200EE"
     var tableView: UITableView!
     var delegate: HomeControllerDelegate?
     

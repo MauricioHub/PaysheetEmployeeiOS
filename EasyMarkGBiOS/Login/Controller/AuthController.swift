@@ -19,9 +19,9 @@ class AuthController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var enterpriseTxt: UITextField!
     @IBOutlet weak var cardIDTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!    
-    @IBOutlet weak var optionsPkv: UIPickerView!
+    //@IBOutlet weak var optionsPkv: UIPickerView!
     
-    let colorPrimary = "#89c64d"
+    let colorPrimary = "#6200EE"
     let urlString = "http://192.168.0.103:8080/workspace_php/paysheet/public/api/login"
     let alternateUrlStr = "http://www.pinlet.net/pinletapi/v1/loginM"
     var url: URL!
@@ -35,10 +35,12 @@ class AuthController: UIViewController, UITextFieldDelegate {
             isModalInPresentation = true
         }
         //url = URL(string: urlString)!
+        self.enterpriseTxt.delegate = self
+        self.cardIDTxt.delegate = self
         self.passwordTxt.delegate = self
-        self.optionsLst = ["Escoja una opción", "Opción 1", "Opción 2"]
-        self.optionsPkv.delegate = self
-        self.optionsPkv.dataSource = self
+        //self.optionsLst = ["Escoja una opción", "Opción 1", "Opción 2"]
+       // self.optionsPkv.delegate = self
+       // self.optionsPkv.dataSource = self
         configureNavigationBar()
     }
 
@@ -315,7 +317,7 @@ class AuthController: UIViewController, UITextFieldDelegate {
     
 }
 
-extension AuthController: UIPickerViewDelegate, UIPickerViewDataSource{
+/*extension AuthController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -342,4 +344,4 @@ extension AuthController: UIPickerViewDelegate, UIPickerViewDataSource{
             self.optionsFlagInt = 3
         }
     }
-}
+}*/

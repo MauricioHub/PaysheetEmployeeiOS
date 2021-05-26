@@ -1247,7 +1247,7 @@ una nueva contraseña temporal</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHD-pc-DJh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="244.66666666666666"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ACQ-Kb-Ekd">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_id_profile" translatesAutoresizingMaskIntoConstraints="NO" id="ACQ-Kb-Ekd">
                                                 <rect key="frame" x="37.666666666666657" y="57.333333333333329" width="300" height="130"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="130" id="cgZ-Xd-mnc"/>
@@ -1301,17 +1301,9 @@ una nueva contraseña temporal</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMJ-62-9z5">
                                         <rect key="frame" x="0.0" y="489.33333333333343" width="375" height="244.66666666666669"/>
                                         <subviews>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72D-AB-BeW">
-                                                <rect key="frame" x="87.666666666666686" y="0.0" width="200" height="65"/>
-                                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="KFf-G7-wSA"/>
-                                                    <constraint firstAttribute="height" constant="65" id="UgX-CF-43X"/>
-                                                </constraints>
-                                            </pickerView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flg-6h-8Uu">
                                                 <rect key="frame" x="87.666666666666686" y="80" width="200" height="50"/>
-                                                <color key="backgroundColor" red="0.53725490196078429" green="0.77647058823529413" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.38431372549019605" green="0.0" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="i8o-5x-X05"/>
                                                     <constraint firstAttribute="height" constant="50" id="slP-2w-qCg"/>
@@ -1326,8 +1318,6 @@ una nueva contraseña temporal</string>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="72D-AB-BeW" firstAttribute="top" secondItem="BMJ-62-9z5" secondAttribute="top" id="461-DN-4A8"/>
-                                            <constraint firstItem="72D-AB-BeW" firstAttribute="centerX" secondItem="BMJ-62-9z5" secondAttribute="centerX" id="O9j-i4-lhQ"/>
                                             <constraint firstItem="Flg-6h-8Uu" firstAttribute="top" secondItem="BMJ-62-9z5" secondAttribute="top" constant="80" id="pFB-be-gqN"/>
                                             <constraint firstItem="Flg-6h-8Uu" firstAttribute="centerX" secondItem="BMJ-62-9z5" secondAttribute="centerX" id="vX4-o9-yub"/>
                                         </constraints>
@@ -1348,7 +1338,6 @@ una nueva contraseña temporal</string>
                     <connections>
                         <outlet property="cardIDTxt" destination="0vP-aA-Sa3" id="1W5-UI-6P4"/>
                         <outlet property="enterpriseTxt" destination="smG-3J-JVJ" id="r9G-Cu-2yZ"/>
-                        <outlet property="optionsPkv" destination="72D-AB-BeW" id="Sz8-zj-1OK"/>
                         <outlet property="passwordTxt" destination="IcC-KJ-4Hs" id="EiJ-GF-sI5"/>
                     </connections>
                 </viewController>
@@ -1358,10 +1347,10 @@ una nueva contraseña temporal</string>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="222" height="131"/>
         <image name="recover_pass_fail_ico" width="37.666667938232422" height="38"/>
         <image name="recover_pass_succ_ico" width="45.333332061767578" height="37.666667938232422"/>
         <image name="regresar_usuarios" width="16.333333969116211" height="30.333333969116211"/>
+        <image name="user_id_profile" width="1389" height="1389"/>
         <image name="usuario_pass_ico" width="28.666666030883789" height="27"/>
         <image name="usuarios_mail_ico" width="28.666666030883789" height="27"/>
         <image name="usuarios_preuser_pic" width="179.66667175292969" height="178.33332824707031"/>

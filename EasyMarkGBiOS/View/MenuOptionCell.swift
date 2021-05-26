@@ -11,7 +11,7 @@ import UIKit
 class MenuOptionCell: UITableViewCell {
 
     // MARK: - Properties
-    let colorPrimary = "#89c64d"
+    let colorPrimary = "#6200EE"
     
     let iconImageView: UIImageView = {
         let iv = UIImageView()

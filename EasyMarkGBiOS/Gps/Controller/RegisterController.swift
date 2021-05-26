@@ -25,7 +25,7 @@ class RegisterController: UIViewController {
     var delegate: HomeControllerDelegate?
     var centerController: UIViewController!
     
-    let colorPrimary = "#89c64d"
+    let colorPrimary = "#6200ee"
     let urlString = "http://192.168.0.103:8080/workspace_php/paysheet/public/api/marks"
     let alternateUrlStr = "http://www.pinlet.net/pinletapi/v1/registrarAsistencia"
     var url: URL!
