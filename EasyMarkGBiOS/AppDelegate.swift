@@ -5,7 +5,7 @@ import GoogleMaps
 import Network
 import UserNotifications
 
-let googleApiKey = "AIzaSyBpJubfbTP4KTd28NKHA2X8GyeRZ5zAhQ4"
+let googleApiKey = "AIzaSyDTZr_DH0s__4WICenPjG8RLmZtiX-RpxI"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

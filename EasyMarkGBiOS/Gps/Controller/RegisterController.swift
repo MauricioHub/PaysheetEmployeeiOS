@@ -26,7 +26,7 @@ class RegisterController: UIViewController {
     var centerController: UIViewController!
     
     let colorPrimary = "#89c64d"
-    let urlString = "http://192.81.132.98:8090/wsTechindCelular/registrarAsistencia"
+    let urlString = "http://192.168.0.103:8080/workspace_php/paysheet/public/api/marks"
     let alternateUrlStr = "http://www.pinlet.net/pinletapi/v1/registrarAsistencia"
     var url: URL!
     var date: Date!
@@ -114,50 +114,29 @@ class RegisterController: UIViewController {
     
 
     func loadAttendanceRecord(){
-        
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm"
         let formattedDate = format.string(from: self.date)
-        let userTypeKey = getUserType()
-        var userTypeID: String!
-        var userTypeName: String!
-        
-        if userTypeKey.contains("e") {
-            userTypeID = AppSettings.employeeId
-            userTypeName = AppSettings.employeeId
-        } else{
-            userTypeID = AppSettings.userEnterpriseId
-            userTypeName = AppSettings.userEnterpriseId
-        }
         
         if NetworkReachabilityManager()!.isReachable {
-            let connectionType =
+            _ =
                 NetworkReachabilityManager()!.isReachableOnCellular ? "m": "w"
             let headerS = [
-                   "Content-Type": "multipart/form-data"
+                   "Content-Type": "multipart/form-data",
+                   "Authorization": "Bearer " + AppSettings.fcmToken
                ]
+            url = URL(string: urlString)!
             
-            let optionBl = (AppSettings.optionsFlag as NSString).boolValue
-            if optionBl {
-                url = URL(string: alternateUrlStr)!
-            } else{
-                url = URL(string: urlString)!
-            }
             
             if AppSettings.userPhotograph != "" {
                 let httpHeaders = HTTPHeaders(headerS)
                 let params: [String: String] = [
-                   "cliente": "\(AppSettings.customerId)",
-                   "movil": "\(AppSettings.mobileId)",
-                   "tipo": userTypeKey,
-                   "id": userTypeID,
-                   "empleado": userTypeName,
-                   "fecha_hora": formattedDate,
-                   "evento": "1",
-                   "foto": AppSettings.userPhotograph,
-                   "latitud": AppSettings.latitude,
-                   "longitud": AppSettings.longitude,
-                   "conexion": connectionType
+                   "mark_date": formattedDate,
+                   "lat": AppSettings.latitude,
+                   "lng": AppSettings.longitude,
+                   "user_id": "2",
+                   "mark_type_id": "1",
+                   "picture": "\(AppSettings.userPhotograph)"
                 ]
                 
                 AF.upload(multipartFormData: { multiPart in
@@ -187,31 +166,28 @@ class RegisterController: UIViewController {
                                do {
                                    self.hideProgressAlert()
                                    let json = try JSON(data: (utf8Text.data(using: .utf8)!))
-                                   let record:[String: Any] = (json["registrarAsistencia"].dictionaryObject!)
-                                   let valueMark = record["respuesta"] as! Bool
-                                   let fechaHora = record["fecha_hora"] as! String
-                                   let messageMark = record["mensaje"] as! String
-                                
-                                   if valueMark == true {
-                                      AppSettings.userPhotograph = ""
-                                      print("Marcacion Exitosa.")
-                                      let dateStr = messageMark + " " + fechaHora
-                                      self.alertHttpResponse(message: dateStr)
-                                      print("\(fechaHora)")
-                                      print("\(messageMark)")
-                                   } else {
-                                      print("Marcacion Fallida.")
-                                   }
+                                    let success = (json["success"].rawString())
+                                    AppSettings.accessMessage = (json["message"].rawString()!)
+                                 
+                                    if (success! as NSString).boolValue == true {
+                                         let innerData: [String:Any] = (json["data"].dictionaryObject!)
+                                         let mark_date = innerData["mark_date"] as! String
+                                        AppSettings.userPhotograph = ""
+                                        self.alertHttpResponse(message: "Se registro marcación con exito, con fecha: " + mark_date)
+                                        
+                                    } else {
+                                        self.showAlert(message: AppSettings.accessMessage)
+                                    }
                                 
                                } catch let aError as NSError {
                                    print("Fallo JSON \(aError)")
                                }
                             }
                             
-                       case .failure(_):
-                            print("Fallo.")
-                            print("NO HAY INTERNET !!! ")
-                            print("NO HAY INTERNET !!! ")
+                       case .failure(let error as NSError):
+                            print(error.localizedDescription)
+                            print(error)
+                            print("FALLO !!! ")
                        }
                    })
                 
@@ -221,17 +197,12 @@ class RegisterController: UIViewController {
 
         } else {
             let params: [String: String] = [
-               "cliente": "\(AppSettings.customerId)",
-               "movil": "\(AppSettings.mobileId)",
-               "tipo": userTypeKey,
-               "id": userTypeID,
-               "empleado": userTypeName,
-               "fecha_hora": formattedDate,
-               "evento": "1",
-               "foto": AppSettings.userPhotograph,
-               "latitud": AppSettings.latitude,
-               "longitud": AppSettings.longitude,
-               "conexion": "n"
+               "mark_date": formattedDate,
+               "lat": AppSettings.latitude,
+               "lng": AppSettings.longitude,
+               "user_id": "2",
+               "mark_type_id": "1",
+               "picture": "\(AppSettings.userPhotograph)"
             ]
             
             let noInternetMess = "Su marcacion se enviara cuando haya internet."
@@ -321,7 +292,9 @@ extension RegisterController: UIImagePickerControllerDelegate, UINavigationContr
         
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             capturedPicture.image = resizeImage(image: image)
-            AppSettings.userPhotograph = imageToHexString(image: image)
+            //AppSettings.userPhotograph = imageToHexString(image: image)
+            AppSettings.userPhotograph = imageToBase64String(image: image)
+            AppSettings.userPhotograph = "data:image/jpeg;base64," + AppSettings.userPhotograph
         }
     }
     
@@ -359,6 +332,10 @@ extension RegisterController: UIImagePickerControllerDelegate, UINavigationContr
         let byteArray : [UInt8] = array as! [UInt8]
         let hexStr = bytesConvertToHexstring(byte: byteArray)
         return hexStr
+    }
+    
+    func imageToBase64String (image: UIImage) -> String {
+        return image.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
     }
     
     

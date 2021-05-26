@@ -46,7 +46,7 @@ class AuthController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(false)
         if AppSettings.accessLog.contains("true"){
-           throwMainScene()
+           throwGpsScene()
         }
     }
     
@@ -71,15 +71,15 @@ class AuthController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func enterExec(_ sender: Any) {
-        if enterpriseTxt.text != "" && cardIDTxt.text != "" && passwordTxt.text != "" {
+      /*  if enterpriseTxt.text != "" && cardIDTxt.text != "" && passwordTxt.text != "" { */
                 preAuthLogin(ruc: enterpriseTxt.text!, card: cardIDTxt.text!, pass: passwordTxt.text!)
                 AppSettings.cardID = cardIDTxt.text!
                 AppSettings.enterpriseRUC = enterpriseTxt.text!
                 print("validado.")
                 
-             } else {
+          /*   } else {
                 self.showAlertDialog(message: "Todos los campos son requeridos.")
-             }
+             } */
     }
     
     
@@ -148,12 +148,6 @@ class AuthController: UIViewController, UITextFieldDelegate {
         self.present(viewController, animated: false)
     }
     
-    func throwMainScene(){
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "containerID") as! ContainerController
-        self.present(viewController, animated: false)
-    }
-    
     
     func showAlertDialog(message: String){
         let alert = UIAlertController(title: "Información", message: message, preferredStyle: .alert)
@@ -164,7 +158,7 @@ class AuthController: UIViewController, UITextFieldDelegate {
     }
     
     func preAuthLogin(ruc:String, card:String, pass:String){
-        if self.optionsFlagInt == 3 {
+       /* if self.optionsFlagInt == 3 {
             self.showAlertDialog(message: "Debe escoger una opción!")
         } else{
             if AuthController.optionsFlag {
@@ -183,7 +177,8 @@ class AuthController: UIViewController, UITextFieldDelegate {
                 //AppSettings.optionsFlag = String("false")
                 self.authLogin(ruc: ruc, card: card, pass: pass)
             }
-        }
+        }*/
+        self.authLogin(ruc: ruc, card: "", pass: "")
     }
 
  
@@ -200,8 +195,8 @@ class AuthController: UIViewController, UITextFieldDelegate {
                    
                 let httpHeaders = HTTPHeaders(headerS)
                 let params: [String: Any] = [
-                       "email": card,
-                       "password": pass
+                       "email": "0923388284",
+                       "password": "123456"
                 ]
                    
                 AF.upload(multipartFormData: { multiPart in
@@ -257,7 +252,7 @@ class AuthController: UIViewController, UITextFieldDelegate {
                                        self.showAlertDialog(message: AppSettings.accessMessage)
                                    }
                             
-                                    self.throwMainScene()
+                                    self.throwGpsScene()
                                 
                                } catch let aError as NSError {
                                    print("Fallo JSON \(aError)")

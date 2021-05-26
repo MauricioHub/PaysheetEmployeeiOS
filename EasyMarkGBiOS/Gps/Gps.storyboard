@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y4r-S6-lNe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y4r-S6-lNe">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,8 +16,8 @@
                     <view key="view" contentMode="scaleToFill" id="53y-D0-AKW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UFb-j5-iZa"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpk-ox-DsH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,7 +93,7 @@
                                     <action selector="throwHomeScene:" destination="lhu-0S-ChC" eventType="touchUpInside" id="EHG-Jm-Jpz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doG-mn-Qcj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doG-mn-Qcj">
                                 <rect key="frame" x="162" y="645" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="4pK-EU-GBF"/>
@@ -108,7 +109,8 @@
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.95294117647058818" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Fy6-k1-9P8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MJ2-K7-ME3" firstAttribute="centerX" secondItem="Ruh-jv-TGp" secondAttribute="centerX" id="Ba3-v0-jrl"/>
                             <constraint firstItem="Dym-G5-nnR" firstAttribute="leading" secondItem="Fy6-k1-9P8" secondAttribute="leading" id="DfX-Mm-OlH"/>
@@ -134,7 +136,6 @@
                             <constraint firstItem="QQi-xZ-8L4" firstAttribute="centerX" secondItem="Ruh-jv-TGp" secondAttribute="centerX" id="xep-D8-h25"/>
                             <constraint firstItem="oWC-e0-Rhi" firstAttribute="top" secondItem="J3p-Cw-g3s" secondAttribute="bottom" id="zHi-lb-jAR"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Fy6-k1-9P8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Maps Title" id="117-75-Mhd"/>
                     <connections>
@@ -332,7 +333,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="cfd-b7-G7A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5fY-cy-g3k" firstAttribute="top" secondItem="qav-02-v87" secondAttribute="bottom" id="5Qw-8H-PmD"/>
                             <constraint firstAttribute="trailing" secondItem="5fY-cy-g3k" secondAttribute="trailing" id="7A2-dX-h2e"/>
@@ -348,7 +350,6 @@
                             <constraint firstItem="qav-02-v87" firstAttribute="top" secondItem="MJm-nS-bBN" secondAttribute="bottom" constant="100" id="xNJ-fP-xqj"/>
                             <constraint firstItem="MJm-nS-bBN" firstAttribute="leading" secondItem="cfd-b7-G7A" secondAttribute="leading" constant="50" id="xpb-ag-Sya"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cfd-b7-G7A"/>
                     </view>
                     <navigationItem key="navigationItem" id="U1S-xH-8oj"/>
                     <connections>
@@ -386,7 +387,7 @@
     </scenes>
     <color key="tintColor" red="0.48507118230000001" green="0.75661444659999999" blue="0.63416630029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <image name="icon_me" width="30" height="55"/>
         <image name="logo" width="222" height="131"/>
         <image name="marcargrande" width="109" height="112"/>
@@ -394,5 +395,8 @@
         <image name="recover_pass_succ_ico" width="45.333332061767578" height="37.666667938232422"/>
         <image name="regresar_usuarios" width="16.333333969116211" height="30.333333969116211"/>
         <image name="usuarios_preuser_pic" width="179.66667175292969" height="178.33332824707031"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
