@@ -160,26 +160,6 @@ class AuthController: UIViewController, UITextFieldDelegate {
     }
     
     func preAuthLogin(ruc:String, card:String, pass:String){
-       /* if self.optionsFlagInt == 3 {
-            self.showAlertDialog(message: "Debe escoger una opción!")
-        } else{
-            if AuthController.optionsFlag {
-                if ruc.count == 13{
-                    let index = ruc.index(ruc.startIndex, offsetBy: 10)
-                    let mySubstring = ruc[..<index]
-                    if self.isValidCardID(cardId: card) && self.isValidCardID(cardId: String(mySubstring)){
-                        self.authLogin(ruc: ruc, card: card, pass: pass)
-                    } else{
-                        self.showAlertDialog(message: "Cédula y RUC deben ser válidos.")
-                    }
-                } else{
-                    self.showAlertDialog(message: "Cédula y RUC deben ser válidos.")
-                }
-            } else{
-                //AppSettings.optionsFlag = String("false")
-                self.authLogin(ruc: ruc, card: card, pass: pass)
-            }
-        }*/
         if ruc.count == 13{
             let index = ruc.index(ruc.startIndex, offsetBy: 10)
             let mySubstring = ruc[..<index]
@@ -191,7 +171,6 @@ class AuthController: UIViewController, UITextFieldDelegate {
         } else{
             self.showAlertDialog(message: "Cédula y RUC deben ser válidos.")
         }
-        //self.authLogin(ruc: ruc, card: "", pass: "")
     }
 
  
@@ -208,8 +187,8 @@ class AuthController: UIViewController, UITextFieldDelegate {
                    
                 let httpHeaders = HTTPHeaders(headerS)
                 let params: [String: Any] = [
-                       "email": "0923388284",
-                       "password": "123456"
+                       "email": card,
+                       "password": pass
                 ]
                    
                 AF.upload(multipartFormData: { multiPart in
