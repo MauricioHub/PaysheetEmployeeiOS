@@ -249,7 +249,7 @@ class AuthController: UIViewController, UITextFieldDelegate {
                                         let innerData: [String:Any] = (json["data"].dictionaryObject!)
                                         let token = innerData["token"] as! String
                                         AppSettings.fcmToken = token
-                                        AppSettings.accessLog = "logged"
+                                        AppSettings.accessLog = "true"
                                    } else {
                                        self.showAlertDialog(message: AppSettings.accessMessage)
                                    }

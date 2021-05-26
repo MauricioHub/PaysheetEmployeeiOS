@@ -48,8 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         // [END register_for_notifications]
         
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "authentication") as! AuthController
+        let storyBoard : UIStoryboard = UIStoryboard(name: "initial", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "splashViewID") as! SplashViewController
         let centerController = UINavigationController(rootViewController: viewController)
         
         /*window = UIWindow(frame: UIScreen.main.bounds)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36DD8E72265EF61F005FC18C /* initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DD8E71265EF61F005FC18C /* initial.storyboard */; };
+		36DD8E77265EF698005FC18C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD8E76265EF698005FC18C /* SplashViewController.swift */; };
 		9A392D9C24C9F2BB002E0B38 /* Reports.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A392D9B24C9F2BB002E0B38 /* Reports.storyboard */; };
 		9A392D9E24C9F2FD002E0B38 /* Reports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A392D9D24C9F2FD002E0B38 /* Reports.swift */; };
 		9A392DA324C9F3AD002E0B38 /* ReportsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A392DA224C9F3AD002E0B38 /* ReportsController.swift */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		11BC4D9AA18CB10E7F467FC8 /* Pods-EasyMarkGBiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyMarkGBiOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyMarkGBiOS/Pods-EasyMarkGBiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		36DD8E71265EF61F005FC18C /* initial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = initial.storyboard; sourceTree = "<group>"; };
+		36DD8E76265EF698005FC18C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9A392D9B24C9F2BB002E0B38 /* Reports.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reports.storyboard; sourceTree = "<group>"; };
 		9A392D9D24C9F2FD002E0B38 /* Reports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reports.swift; sourceTree = "<group>"; };
 		9A392DA224C9F3AD002E0B38 /* ReportsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 				EE39DE82760C6E277E6CBE52 /* Pods_EasyMarkGBiOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		36DD8E70265EF5C5005FC18C /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				36DD8E71265EF61F005FC18C /* initial.storyboard */,
+				36DD8E76265EF698005FC18C /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		9A392D9F24C9F383002E0B38 /* Controller */ = {
@@ -361,6 +374,7 @@
 		9ACBADFD24C0CC5100CB41AB /* EasyMarkGBiOS */ = {
 			isa = PBXGroup;
 			children = (
+				36DD8E70265EF5C5005FC18C /* Splash */,
 				9A9FDE2324C0FF38008E80BE /* EasyMarkGBiOS.entitlements */,
 				9A6C7E2324C0E088006DD0FD /* Common */,
 				9A6C7E1F24C0E088006DD0FD /* Controller */,
@@ -509,6 +523,7 @@
 				9ACBAE0B24C0CC5200CB41AB /* LaunchScreen.storyboard in Resources */,
 				9A6C7E3D24C0E9EB006DD0FD /* GoogleService-Info.plist in Resources */,
 				9A6C7E0424C0E06A006DD0FD /* Bluetooth.storyboard in Resources */,
+				36DD8E72265EF61F005FC18C /* initial.storyboard in Resources */,
 				9ACBAE0824C0CC5200CB41AB /* Assets.xcassets in Resources */,
 				9A6C7E2D24C0E088006DD0FD /* Login.storyboard in Resources */,
 				9A6F57BC24C65B06004A94F8 /* AppIcon-4.png in Resources */,
@@ -613,6 +628,7 @@
 				9A6C7E2524C0E088006DD0FD /* Protocols.swift in Sources */,
 				9A6B633224C5240E00A55BF2 /* EasyMarkSingleton.swift in Sources */,
 				9A6C7E0324C0E06A006DD0FD /* BluetoothController.swift in Sources */,
+				36DD8E77265EF698005FC18C /* SplashViewController.swift in Sources */,
 				9A392DA524CA2DEE002E0B38 /* ReportCell.swift in Sources */,
 				9A392DA324C9F3AD002E0B38 /* ReportsController.swift in Sources */,
 				9A6C7E3324C0E088006DD0FD /* RegisterController.swift in Sources */,
